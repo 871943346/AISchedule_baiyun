@@ -1,13 +1,18 @@
 /*
 * @Author: Berge
-* @Date: 2024-12-01 13:14:00
+* @Date: 2024-12-01
 * @email：871943346@qq.com
-* @Description:广东白云学院-青果教务-provide.js
+* @Description:广东白云学院-青果教务系统-provide.js
 */
 
 async function scheduleHtmlProvider() {
     await loadTool('AIScheduleTools');
     try {
+        startSemester = await AISchedulePrompt({
+            titleText: '输入开学时间',
+            tipText: '请输入开学时间格式为（YYYY/MM/DD）\nBy-Berge',
+            defaultText: '2024/09/01',
+            })
         let frameSet = document.querySelector("html > frameset");
         if (!frameSet) throw new Error("没有找到 frameset 元素");
         let frameBody = frameSet.querySelector("frame:nth-child(3)");
@@ -22,9 +27,7 @@ async function scheduleHtmlProvider() {
         if (!iframeRpt) throw new Error("没有找到 frmRpt iframe");
         let tableElement = iframeRpt.contentWindow.document.querySelector("body > table[cellspacing='1']");
         if (!tableElement) throw new Error("没有找到课程表的 table 元素");
-        return (tableElement.outerHTML);
-        let jsonString = JSON.stringify(tableElement.outerHTML);
-        return JSON.stringify(jsonString);
+        return ((tableElement.outerHTML)+"<div id='startSemester'>"+startSemester+"</div>");
     } catch (e) {
         console.error("错误:", e.message);
         await AIScheduleAlert({

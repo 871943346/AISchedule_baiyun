@@ -1,8 +1,8 @@
 /*
 * @Author: Berge
-* @Date: 2024-12-01 13:14:00
+* @Date: 2024-12-01
 * @email：871943346@qq.com
-* @Description:广东白云学院-青果教务-parser.js
+* @Description:广东白云学院-青果教务系统-parser.js
 */
 
 function parseWeeks(weekString, sectionString) {
@@ -55,6 +55,11 @@ function parseSections(weekString) {
 }
 
 function scheduleHtmlParser(html) {
+    const startSemesterText = $('#startSemester').text();
+    const startSemesterDate = new Date(startSemesterText);
+    const startSemesterTimestamp = startSemesterDate.getTime();
+    let startSemester = startSemesterTimestamp.toString();
+
     const result = [];
     let lastNonEmptyName = '';
     let lastNonEmptyTeacher = '';
@@ -86,5 +91,7 @@ function scheduleHtmlParser(html) {
     } else {
         console.log('No rows found in the provided HTML');
     }
-    return result;
+    return {courseInfos: result,
+        startSemester: startSemester
+    };
 }

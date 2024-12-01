@@ -1,8 +1,8 @@
 /*
 * @Author: Berge
-* @Date: 2024-12-01 13:14:00
+* @Date: 2024-12-01
 * @email：871943346@qq.com
-* @Description:广东白云学院-青果教务-timer.js
+* @Description:广东白云学院-青果教务系统-timer.js
 */
 
 function getStartDate() {
@@ -26,9 +26,10 @@ async function scheduleTimer({
         setTimeout(() => resolve(), 1)
     })
     await someAsyncFunc()
+    const startSemesterTimestamp = parserRes && parserRes.startSemester || getStartDate()||'';
     return {
         totalWeek: 20,
-        startSemester: getStartDate(),
+        startSemester: startSemesterTimestamp,
         startWithSunday: false,
         showWeekend: false,
         forenoon: 4,
