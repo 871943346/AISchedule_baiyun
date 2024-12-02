@@ -12,4 +12,4 @@ AISchedule_baiyun
 
 - [x] 本地测试
 - [x] E2E 测试
-- [ ] 上线测试
+- [x] 上线测试
