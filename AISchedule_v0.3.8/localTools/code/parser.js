@@ -1,7 +1,7 @@
 /*
 * @Author: Berge
-* @Date: 2024-12-01
-* @email：871943346@qq.com
+* @Date: 2024-12-03
+* @email：berge520@foxmail.com
 * @Description:广东白云学院-青果教务系统-parser.js
 */
 
@@ -71,7 +71,8 @@ function scheduleHtmlParser(html) {
                 console.log('Skipping row with no course information:', row);
                 continue;
             }
-            const name = $(cells[1]).text().trim() || lastNonEmptyName;
+            const nameWithCode = $(cells[1]).text().trim() || lastNonEmptyName;
+            const name = nameWithCode.replace(/^\[.*?\]/, '');
             const position = $(cells[12]).text().trim() || '';
             const teacher = $(cells[9]).text().trim() || lastNonEmptyTeacher;
             const weeks = parseWeeks($(cells[10]).text().trim() || '', $(cells[11]).text().trim() || '');

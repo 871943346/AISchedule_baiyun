@@ -1,7 +1,7 @@
 /*
 * @Author: Berge
-* @Date: 2024-12-01
-* @email：871943346@qq.com
+* @Date: 2024-12-03
+* @email：berge520@foxmail.com
 * @Description:广东白云学院-青果教务系统-provide.js
 */
 
@@ -10,7 +10,7 @@ async function scheduleHtmlProvider() {
     try {
         startSemester = await AISchedulePrompt({
             titleText: '输入开学时间',
-            tipText: '请输入开学时间格式为（YYYY/MM/DD）\nBy-Berge',
+            tipText: '请输入开学时间格式为（YYYY/MM/DD）\n如：2024/09/01\n请确保格式正确\nBy-Berge',
             defaultText: '2024/09/01',
             })
         let frameSet = document.querySelector("html > frameset");

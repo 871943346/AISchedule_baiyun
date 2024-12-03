@@ -1,7 +1,7 @@
 /*
 * @Author: Berge
-* @Date: 2024-12-01
-* @email：871943346@qq.com
+* @Date: 2024-12-03
+* @email：berge520@foxmail.com
 * @Description:广东白云学院-青果教务系统-timer.js
 */
 
